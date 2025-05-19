@@ -7,13 +7,21 @@ import './styles.css'; // Импортируем стили
 const Editor = () => {
   const [backgroundImage, setBackgroundImage] = useState(null);
 
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      setBackgroundImage(reader.result);
-    };
-    reader.readAsDataURL(file);
+  const handleFileUpload = async (event) => {
+    try {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      await new Promise((resolve) => {
+        reader.onload = () => {
+          setBackgroundImage(reader.result);
+          resolve(); // Завершаем promise
+        };
+        reader.readAsDataURL(file); // Читаем файл как Data URI
+      });
+    } catch (err) {
+      console.error('Ошибка при загрузке файла:', err.message);
+    }
   };
 
   return (
