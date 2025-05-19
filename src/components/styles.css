@@ -1,0 +1,129 @@
+/* src/components/styles.css */
+
+.editor-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.menu-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px; /* Немного увеличенная ширина меню */
+  height: 100%; /* Полная высота экрана */
+  background-color: rgba(255, 255, 255, 0.8); /* Светлый полупрозрачный фон */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Немного тени */
+}
+
+.upload-label {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border: none;
+  background-color: grey;
+}
+
+.upload-label:hover {
+  background-color: darkgrey;
+}
+
+.canvas-container {
+  flex: 1; /* Занимает оставшуюся часть экрана */
+  position: relative;
+  overflow: scroll; /* Прокрутка доступна при больших размерах холста */
+  box-shadow: inset 0 0 0 1px orange; /* Тонкая оранжевая рамка вокруг холста */
+  height: calc(100vh / 2.5); /* Высоту рамки уменьшаем в 2.5 раза */
+}
+
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  height: fit-content;
+  z-index: 10;
+}
+
+.palette button {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border: none;
+}
+
+.palette button:nth-child(1) {
+  background-color: green; /* Первая кнопка зелёная */
+}
+
+.palette button:nth-child(2) {
+  background-color: blue; /* Вторая кнопка синяя */
+}
+
+.palette button:nth-child(3) {
+  background-color: purple; /* Третья кнопка фиолетовая */
+}
+
+.palette button:nth-child(4) {
+  background-color: red; /* Четвертая кнопка красная */
+}
+
+.palette button:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  max-width: 80px;
+  opacity: 1;
+  z-index: 10;
+}
+
+.scroll-zoom-control {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.zoom-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fefefe;
+  color: black;
+  border: 1px solid gray;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.zoom-button:hover {
+  background-color: lightgray;
+}

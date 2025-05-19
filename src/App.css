@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.editor-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+  overflow-y: hidden;
+  height: 100vh;
+  box-shadow: inset 0 0 0 1px orange; /* Тонкая оранжевая рамка вокруг холста */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* src/App.css */
+
+.palette {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 5px; /* Меньший интервал между кнопками */
+  width: 100px; /* Уменьшили ширину вдвое */
+  height: 150px; /* Высота уменьшилась примерно втрое */
+  z-index: 10;
 }
 
-.App-link {
-  color: #61dafb;
+.palette button {
+  padding: 5px 10px; /* Сделал кнопки компактнее */
+  font-size: 12px; /* Уменьшил шрифт */
+  line-height: 1; /* Без лишней высоты текста */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.canvas-container {
+  position: relative;
+  overflow: scroll;
+  width: calc(100% - 100px); /* Учли меньшую ширину панели */
+  height: 100%;
+  user-select: none;
+}
+
+.palette button:nth-child(1) {
+  background-color: green; /* Цвет первой кнопки */
+}
+
+.palette button:nth-child(2) {
+  background-color: blue; /* Цвет второй кнопки */
+}
+
+.palette button:nth-child(3) {
+  background-color: purple; /* Цвет третьей кнопки */
+}
+
+.palette button:nth-child(4) {
+  background-color: red; /* Цвет четвертой кнопки */
+}
+
+.palette button:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  max-width: 100px;
+  opacity: 1; /* Повысим прозрачность до полной видимости */
+  z-index: 10; /* Пусть будет поверх остальных элементов */
+}
+.scroll-zoom-control {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.zoom-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fefefe;
+  color: black;
+  border: 1px solid gray;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.zoom-button:hover {
+  background-color: lightgray;
 }
