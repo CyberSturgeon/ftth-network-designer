@@ -3,6 +3,7 @@ import React from 'react';
 import ReactFlow from 'react-flow-renderer';
 import SubscriberNode from './components/NetworkElement';
 import SplitterNode from './components/SplitterNode';
+import Editor from './components/Editor';
 import './App.css';
 
 const initialElements = [
@@ -28,6 +29,7 @@ const customNodeTypes = {
 const App = () => {
   return (
     <div className="editor-container">
+      <Editor />
       <ReactFlow elements={initialElements} nodeTypes={customNodeTypes}></ReactFlow>
     </div>
   );

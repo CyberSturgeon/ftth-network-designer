@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 120px; /* Немного увеличенная ширина меню */
+  width: 120px; /* Ширина меню */
   height: 100%; /* Полная высота экрана */
   background-color: rgba(255, 255, 255, 0.8); /* Светлый полупрозрачный фон */
   position: sticky;
@@ -22,31 +22,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Немного тени */
 }
 
-.upload-label {
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
-  outline: none;
-  border: none;
-  background-color: grey;
-}
-
-.upload-label:hover {
-  background-color: darkgrey;
-}
-
 .canvas-container {
-  flex: 1; /* Занимает оставшуюся часть экрана */
+  flex: 1; /* Занимает всю свободную область */
   position: relative;
-  overflow: scroll; /* Доступна прокрутка при большом размере холста */
+  overflow: scroll; /* Прокрутка доступна при большом размере холста */
   box-shadow: inset 0 0 0 1px orange; /* Тонкая оранжевая рамка вокруг холста */
-  height: calc(100vh - 50px); /* Маленькая коррекция высоты */
+  height: calc(100vh - 50px); /* Небольшая коррекция высоты */
 }
 
 .palette {
