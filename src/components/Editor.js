@@ -1,11 +1,13 @@
 // src/components/Editor.js
 import React, { useState } from 'react';
+import ReactFlow from 'react-flow-renderer';
 import Palette from './Palette';
 import ZoomControl from './ZoomControl';
 import './styles.css'; // Импортируем стили
 
 const Editor = () => {
   const [backgroundImage, setBackgroundImage] = useState(null);
+  const [scaleFactor, setScaleFactor] = useState(1); // Переменная для хранения коэффициента масштабирования
 
   const handleFileUpload = async (event) => {
     try {
@@ -38,7 +40,7 @@ const Editor = () => {
           style={{ display: 'none' }} // Скрываем стандартный input
         />
         <Palette />
-        <ZoomControl />
+        <ZoomControl scaleFactor={scaleFactor} setScaleFactor={setScaleFactor} />
         <img
           src="/logo.png" // Убедитесь, что логотип лежит в папке /public
           alt="University Logo"
@@ -47,17 +49,14 @@ const Editor = () => {
       </div>
       <div
         className="canvas-container"
-        style={
-          backgroundImage
-            ? {
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: 'cover', /* Авто-масштабирование */
-                backgroundPosition: 'center', /* Центровка изображения */
-                backgroundRepeat: 'no-repeat' /* Только одно изображение */
-              }
-            : {}
-        }
-      />
+        style={{
+          width: 'calc(100% - 120px)', // Вычитаем ширину меню
+          height: '100vh', // Весь экран по высоте
+          backgroundColor: '#fff',
+        }}
+      >
+        <ReactFlow transform={[scaleFactor, 0, 0]}></ReactFlow>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 // src/components/NetworkElement.js
 import React from 'react';
 
-const NetworkElement = ({ elementType }) => {
-  return <div>{elementType}</div>;
+const SubscriberNode = ({ data }) => {
+  return <div>Абонент {data.label}</div>;
 };
 
-export default NetworkElement;
+export default SubscriberNode;
